@@ -8,12 +8,12 @@
  * Cockpit: 201+
  * NFS (Optional)
  * Samba: 4+ (Optional)
- * ZFS: 0.8+
+ * ZFS: 2.0+
  
  <details>
   <summary>Tested Distributions</summary>
   
-  * Ubuntu 20.04 LTS
+  * Rocky Linux 8.x / 9.x
   
 </details>
 
