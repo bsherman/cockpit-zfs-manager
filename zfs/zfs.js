@@ -6251,6 +6251,9 @@ function FnFileSystemConfigurationGet(pool = { name, id, readonly: false }, file
                             case "zle":
                                 filesystem.property.value = "ZLE";
                                 break;
+                            case "zstd":
+                                filesystem.property.value = "Zstd";
+                                break;
                             default:
                                 filesystem.property.value = "Off";
                                 break;
@@ -6982,6 +6985,9 @@ function FnFileSystemConfigurationInheritedGet(pool = { name, id }, filesystem =
                             case "zle":
                                 filesystem.property.value = "ZLE";
                                 break;
+                            case "zstd":
+                                filesystem.property.value = "Zstd";
+                                break;
                             default:
                                 filesystem.property.value = "Off";
                                 break;
@@ -7044,6 +7050,9 @@ function FnFileSystemConfigurationInheritedGet(pool = { name, id }, filesystem =
                                 break;
                             case "zle":
                                 filesystem.property.value = "ZLE";
+                                break;
+                            case "zstd":
+                                filesystem.property.value = "Zstd";
                                 break;
                             default:
                                 filesystem.property.value = "Off";
@@ -7430,6 +7439,9 @@ function FnFileSystemConfigurationInheritedPropertyGet(pool = { name, id }, file
                     break;
                 case "zle":
                     filesystem.properties.value = "ZLE";
+                    break;
+                case "zstd":
+                    filesystem.properties.value = "Zstd";
                     break;
                 default:
                     filesystem.properties.value = ($.isNumeric(filesystem.properties.value) ? FnFormatBytes({ base2: true, decimals: 0, value: filesystem.properties.value }) : filesystem.properties.value.charAt(0).toUpperCase() + filesystem.properties.value.slice(1));
@@ -15444,6 +15456,7 @@ function FnModalFileSystemsCreateContent(pool = { name, id: '', altroot: false, 
                                     ` + (pool.feature.lz4_compress ? `<li value="lz4"><a tabindex="-1">LZ4</a></li>` : ``) + `
                                     <li value="lzjb"><a tabindex="-1">LZJB</a></li>
                                     <li value="zle"><a tabindex="-1">ZLE</a></li>
+                                    <li value="zstd"><a tabindex="-1">Zstd</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -16397,6 +16410,7 @@ function FnModalFileSystemConfigureContent(pool = { name, id, altroot: false, fe
                                     ` + (pool.feature.lz4_compress ? `<li value="lz4"><a tabindex="-1">LZ4</a></li>` : ``) + `
                                     <li value="lzjb"><a tabindex="-1">LZJB</a></li>
                                     <li value="zle"><a tabindex="-1">ZLE</a></li>
+                                    <li value="zstd"><a tabindex="-1">Zstd</a></li>
                                 </ul>
                             </div>
                         </div>
