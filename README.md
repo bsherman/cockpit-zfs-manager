@@ -3,6 +3,9 @@
 [![GitHub Tag](https://img.shields.io/github/v/release/45drives/cockpit-zfs-manager?include_prereleases&style=flat-square&color=brightgreen)](https://github.com/45drives/cockpit-zfs-manager/releases)
 
 **An interactive ZFS on Linux admin package for Cockpit.**
+
+Use of this software is at your risk!
+
 ## Requirements
 
  * Cockpit: 201+
@@ -45,15 +48,21 @@ shadow: format = %Y.%m.%d-%H.%M.%S
 shadow: localtime = yes	
 vfs objects = acl_xattr shadow_copy2
 ```
+#### SELinux
+
+If using SELinux in enforcing mode, it is recommended to enable the boolean states for Samba:
+
+```bash
+$ sudo setsebool -P samba_export_all_ro=1 samba_export_all_rw=1
+```
 
 ## Using Cockpit ZFS Manager
 
-Login to Cockpit as a privileged user and click ZFS from the navigation list.
+Login to Cockpit as an administrative user and click ZFS from the navigation list.
 
 A Welcome to Cockpit ZFS Manager modal will display and allow you to configure initial settings.
 
-Note: Inline help is currently available in modals. Documentation will be created at a later date.
-
+Note: Inline help is currently available in modals.
 
 ## Notes
 
@@ -90,4 +99,21 @@ If SELinux contexts for Samba is selected, the following properties are set:
 
 ZFS always creates shares in /var/lib/samba/usershares folder when ShareSMB property is enabled. This is also the case even if Cockpit ZFS Manager is managing the shares. To avoid duplicate shares of the same file system, it is recommended to configure a different usershares folder path if required or to disable usershares in the Samba configuration file.
 
+Note: Newer versions of Samba may require the usershares folder to be set to a new path instead of disabled in configuration:
+
+```bash
+$ sudo mkdir /var/lib/samba/usershares2
+$ sudo nano /etc/samba/smb.conf
+```
+
+Append/Change to [global] section
+
+```
+usershare path = /var/lib/samba/usershares2
+```
+
 If enabled, Cockpit ZFS Manager manages shares for the file systems only. Samba global configuration will need to be configured externally.
+
+## Guides
+
+ * [Red Hat Enterprise Linux 8 as an Active Directory Domain Services (AD DS) Member](guides/Red-Hat-Enterprise-Linux-8.md)
