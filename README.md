@@ -1,6 +1,6 @@
 # Cockpit ZFS Manager
 
-[![GitHub Tag](https://img.shields.io/github/v/release/45drives/cockpit-zfs-manager?include_prereleases&style=flat-square&color=brightgreen)](https://github.com/45drives/cockpit-zfs-manager/releases)
+[![GitHub Tag](https://img.shields.io/github/v/release/bsherman/cockpit-zfs-manager?include_prereleases&style=flat-square&color=brightgreen)](https://github.com/bsherman/cockpit-zfs-manager/releases)
 
 **An interactive ZFS on Linux admin package for Cockpit.**
 
